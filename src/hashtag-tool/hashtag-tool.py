@@ -16,7 +16,7 @@ def convert(text_input):
     # Format - Remove space, put into lowercase, and split by comma
     cache = text_input.replace(" ", "").lower().split(",") 
     # Convert
-    result = "".join(f'#{txt}' for txt in cache if txt)
+    result = "".join(f'#{txt} ' for txt in cache if txt)
     # Return
     return result
 
