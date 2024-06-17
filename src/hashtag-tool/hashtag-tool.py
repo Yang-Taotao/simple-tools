@@ -86,4 +86,5 @@ root.grid_columnconfigure(0, weight=1)
 root.grid_columnconfigure(1, weight=1)
 
 # GUI ops
-root.mainloop()
+if __name__ == '__main__':
+    root.mainloop()
