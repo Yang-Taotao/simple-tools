@@ -5,6 +5,17 @@ Handles GUI app
 import tkinter as tk
 from tkinter.font import Font
 
+# Input filtering
+
+
+def filter_nonalum(text_input):
+    """
+    Filters out non-alnum chars
+    """
+    # Return 
+    return "".join(char for char in text_input if char.isalnum())
+
+
 # Hashtag converter
 
 
@@ -16,7 +27,7 @@ def convert(text_input):
     # Format - Remove space, put into lowercase, and split by comma
     cache = text_input.replace(" ", "").lower().split(",") 
     # Convert
-    result = "".join(f'#{txt} ' for txt in cache if txt)
+    result = "".join(f'#{filter_nonalum(txt)} ' for txt in cache if txt)
     # Return
     return result
 
@@ -54,8 +65,14 @@ root = tk.Tk()
 root.title("Hashtag Converter")
 
 # GUI style
-root.geometry("800x600")
-font = Font(family="Arial", size=16)
+# Set window shape from display shape
+window_w = int(0.25*root.winfo_screenwidth())
+window_h = int(0.25*root.winfo_screenheight())
+# Font set
+font = Font(family="Arial", size=14)
+
+# Make adaptive window
+root.geometry(f"{window_w}x{window_h}")
 
 # Widgets - input
 label_input = tk.Label(root, text="Enter Your\n Hashtags Here:", font=font)
