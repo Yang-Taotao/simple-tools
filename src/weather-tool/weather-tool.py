@@ -24,8 +24,7 @@ def weather_get():
         data (dict): weather data dict
     """
     # Build URL
-    url = f"https://api.openweathermap.org/data/2.5/weather?q={
-        CITY_NAME},{COUNTRY_CODE}&appid={API_KEY}"
+    url = f"https://api.openweathermap.org/data/2.5/weather?q={CITY_NAME},{COUNTRY_CODE}&appid={API_KEY}"
     # Get data
     response = requests.get(url)
     # Check status
@@ -50,14 +49,14 @@ def weather_read(data):
         temp_min (float): min temperature
         temp_max (float): max temperature
         desc (str): weather description
-        rain (float): chance of rain
+        rain (float): rain amount
     """
     # Read weather data
     temp_min, temp_max, desc, rain = (
         data['main']['temp_min'],   # Temperature minimum
         data['main']['temp_max'],   # Temperature maximum
         data['weather'][0]['description'],  # Weather description
-        data.get('rain', {}).get('1h', 0)  # Chance of rain in the next hour
+        data.get('rain', {}).get('1h', 0)  # Rain in the last hour
     )
     # Convertion
     temp_min, temp_max = temp_min-KELVIN, temp_max-KELVIN
@@ -75,11 +74,11 @@ def weather_print(temp_min, temp_max, desc, rain):
         temp_min (float): converted min temperature
         temp_max (float): converted max temperature
         desc (str): weather description
-        rain (float): chance of rain in the next hour
+        rain (float): rain amount
     """
     # Get current date and time
     date = datetime.now().strftime('%Y-%m-%d')
-    time = datetime.now().strftime('%H:%M-%S')
+    time = datetime.now().strftime('%H:%M:%S')
     # Display
     print("=" * 30)
     print(f"{'Weather Report':<20}{date:>10}")
@@ -87,8 +86,8 @@ def weather_print(temp_min, temp_max, desc, rain):
     print(f"{'Inquiry Time':<20}{time:>10}")
     print("-" * 30)
     print(f"{'LOCATION':<10}{CITY_NAME:>20}")
-    print(f"{'TEMP LOW':<10}{temp_min:>17.2f}{'\u00B0C':>3}")
-    print(f"{'TEMP HIGH':<10}{temp_max:>17.2f}{'\u00B0C':>3}")
+    print(f"{'TEMP LOW':<10}{temp_min:>18.2f}{'C':>2}")
+    print(f"{'TEMP HIGH':<10}{temp_max:>18.2f}{'C':>2}")
     print(f"{'TYPE':<5}{desc:>25}")
     print(f"{'RAIN 1H':<10}{rain:>20.2f}")
     print("=" * 30)
