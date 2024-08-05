@@ -12,7 +12,7 @@ def filter_nonalum(text_input):
     """
     Filters out non-alnum chars
     """
-    # Return 
+    # Return
     return "".join(char for char in text_input if char.isalnum())
 
 
@@ -25,7 +25,7 @@ def convert(text_input):
     Ex: Str1, St r2,  sTR 3, -> #str1 #str2 #str3
     """
     # Format - Remove space, put into lowercase, and split by comma
-    cache = text_input.replace(" ", "").lower().split(",") 
+    cache = text_input.replace(" ", "").lower().split(",")
     # Convert
     result = "".join(f'#{filter_nonalum(txt)} ' for txt in cache if txt)
     # Return
@@ -87,8 +87,10 @@ output_entry = tk.Text(root, wrap="word", height=4)
 output_entry.grid(row=2, column=1, padx=5, pady=10, sticky="we")
 
 # Buttons
-button_convert = tk.Button(root, text="Convert", font=font, command=gui_convert)
-button_convert.grid(row=1, column=0, columnspan=2, padx=10, pady=10, sticky="we")
+button_convert = tk.Button(
+    root, text="Convert", font=font, command=gui_convert)
+button_convert.grid(row=1, column=0, columnspan=2,
+                    padx=10, pady=10, sticky="we")
 button_clear = tk.Button(root, text="Clear", font=font, command=gui_clear)
 button_clear.grid(row=3, column=0, padx=10, pady=10, sticky="we")
 button_copy = tk.Button(root, text="Copy", font=font, command=gui_copy)
