@@ -20,3 +20,18 @@ A simple hashtag tool with GUI that works on simple text strings.
 ## weather-tool
 
 A simple weather tool to display the current weather data in Glasgow.
+
+```bash
+========================================
+Weather Report                2024-08-06
+----------------------------------------
+Inquiry Time                    23:28:15
+========================================
+LOCATION                         Glasgow
+TEMP LOW                         13.17 C
+TEMP HIGH                        14.84 C
+TEMP FEEL                        13.61 C
+WEATHER                           Clouds
+TYPE                       broken clouds
+========================================
+```
