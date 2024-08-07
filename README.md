@@ -5,9 +5,13 @@ A collection of simple tools with python.
 ## File Structure
 
 ```bash
-└───src
-    └───hashtag-tool
-    └───weather-tool
+├───build
+├───dist
+├───env
+├───src
+│   ├───hashtag_tool
+│   └───weather_tool
+└───tests
 ```
 
 ## hashtag-tool
