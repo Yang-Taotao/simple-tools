@@ -104,5 +104,6 @@ class TestWeatherFunc(unittest.TestCase):
         mock_print.assert_any_call('=' * 40)
 
 
+# Run PYTHONPATH=./src pytest
 if __name__ == '__main__':
     unittest.main()
