@@ -6,7 +6,7 @@ from hashtag_tool.hashtag_tool import filter_nonalum, convert
 
 
 class TestHashtagFunc(unittest.TestCase):
-    
+
     def test_filter_nonalum(self):
         # Test that non-alphanumeric characters are removed
         self.assertEqual(filter_nonalum("Hello@World!"), "HelloWorld")
@@ -20,9 +20,12 @@ class TestHashtagFunc(unittest.TestCase):
         self.assertEqual(convert("Hello,World"), "#hello #world ")
         self.assertEqual(convert(""), "")
         self.assertEqual(convert(" , , "), "")
-        self.assertEqual(convert("NoSpecialCharsAllowed!"), "#nospecialcharsallowed ")
+        self.assertEqual(convert("NoSpecialCharsAllowed!"),
+                         "#nospecialcharsallowed ")
         self.assertEqual(convert("Multiple    Spaces"), "#multiplespaces ")
         self.assertEqual(convert("Mixed,Case"), "#mixed #case ")
+        self.assertEqual(convert("Sometext, mixed with spaces, and new #$%#@!, CASEs"),
+                         "#sometext #mixedwithspaces #andnew#$%#@! #CASEs ")
 
 
 # Run PYTHONPATH=./src pytest
