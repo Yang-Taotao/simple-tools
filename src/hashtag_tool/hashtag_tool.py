@@ -25,7 +25,7 @@ def convert(text_input):
     Ex: Str1, St r2,  sTR 3, -> #str1 #str2 #str3
     """
     # Format - Remove space, put into lowercase, and split by comma
-    cache = text_input.replace(" ", "").lower().split(",")
+    cache = text_input.replace(" ", "").replace("-", "").lower().split(",")
     # Convert
     result = "".join(f'#{filter_nonalum(txt)} ' for txt in cache if txt)
     # Return
